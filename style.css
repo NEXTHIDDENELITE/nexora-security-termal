@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@500;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* টেক্সট সিলেক্ট করা বন্ধ করার জন্য */
+}
+
+body {
+    background-color: #0b0c10;
+    color: #edf5e1;
+    font-family: 'Fira Code', monospace;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 50% 50%, #1f0303 0%, #0b0c10 80%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    max-width: 150px;
+    filter: drop-shadow(0 0 15px #ff0000);
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    color: #ff3b30;
+    text-shadow: 0 0 10px rgba(255, 59, 48, 0.6);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+/* কার্ডস গ্রিড লেআউট */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: rgba(20, 22, 26, 0.7);
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.status-card:hover { border-color: #ff3b30; }
+.kick-card:hover { border-color: #ff9500; }
+.operational-card:hover { border-color: #4cd964; }
+
+.card h3 {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.counter {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+#timeout-count { color: #ff3b30; }
+#kick-count { color: #ff9500; }
+
+.status-indicator {
+    font-family: 'Orbitron', sans-serif;
+    color: #4cd964;
+    font-size: 1.8rem;
+    font-weight: 800;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; text-shadow: 0 0 15px #4cd964; }
+    100% { opacity: 0.6; }
+}
+
+/* মেইন ড্যাশবোর্ড এরিয়া */
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media(max-width: 850px) {
+    .dashboard-main { grid-template-columns: 1fr; }
+}
+
+.panel-section {
+    background: rgba(15, 17, 20, 0.85);
+    border: 1px solid #1c1e22;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.panel-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #222;
+}
+
+/* মেম্বার রোউ ডিজাইন */
+.timeout-user-row {
+    display: flex;
+    align-items: center;
+    background: #14161a;
+    border: 1px solid #251010;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff3b30;
+    margin-right: 15px;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.user-id {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 2px;
+}
+
+.live-timer {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff3b30;
+    background: rgba(255, 59, 48, 0.1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 59, 48, 0.3);
+}
+
+.no-data {
+    text-align: center;
+    color: #666;
+    padding: 40px 0;
+    font-style: italic;
+}
+
+/* টার্মিনাল স্টাইল */
+.terminal-window {
+    background: #050508;
+    border: 1px solid #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.terminal-header {
+    background: #111;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-header .title {
+    font-size: 0.75rem;
+    color: #777;
+    margin-left: 10px;
+}
+
+.terminal-body {
+    padding: 20px;
+    height: 320px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.log-line {
+    margin-bottom: 8px;
+    word-break: break-all;
+}
+
+.text-muted { color: #555; }
+.text-success { color: #4cd964; }
+.text-danger { color: #ff3b30; }
+.text-warn { color: #ff9500; }

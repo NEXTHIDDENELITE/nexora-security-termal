@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora Terminal - Live Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- হেডার এবং ব্র্যান্ডিং ব্যানার -->
+        <header>
+            <img src="https://cdn.discordapp.com/attachments/1516760914840391800/1516761044691980338/NEXORA_CORPORATION2.png" alt="Nexora Logo" class="logo">
+            <h1>NEXORA TERMINAL</h1>
+            <p class="subtitle">Real-time Automated Security Logs & Countermeasures</p>
+        </header>
+
+        <!-- ৩টি মেইন ইনফোカード -->
+        <div class="cards-grid">
+            <div class="card status-card">
+                <h3>Timeout Members</h3>
+                <div class="counter" id="timeout-count">0</div>
+            </div>
+            <div class="card kick-card">
+                <h3>Kick Members</h3>
+                <div class="counter" id="kick-count">0</div>
+            </div>
+            <div class="card operational-card">
+                <h3>Core Status</h3>
+                <div class="status-indicator">ONLINE</div>
+            </div>
+        </div>
+
+        <!-- মেইন ড্যাশবোর্ড সেকশন: একটিভ টাইমআউট লিস্ট ও লাইভ টার্মিনাল -->
+        <div class="dashboard-main">
+            
+            <!-- একটিভ টাইমআউট লিস্ট কার্ড (ইউজার প্রোফাইল ও লাইভ কাউন্টডাউন সহ) -->
+            <div class="panel-section">
+                <h2>🚫 ACTIVE TIMEOUTS</h2>
+                <div class="timeout-list" id="timeout-container">
+                    <p class="no-data">No users are currently restricted.</p>
+                </div>
+            </div>
+
+            <!-- লাইভ অ্যাকশন টার্মিনাল লিম্বো -->
+            <div class="panel-section">
+                <h2>📟 SECURITY TERMINAL LIMS</h2>
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="title">nexora_kernel_log.sys</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-log">
+                        <div class="log-line text-muted">[SYSTEM] Initializing Nexora Terminal Core...</div>
+                        <div class="log-line text-success">[READY] Realtime database pipeline linked successfully.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🔥 ফায়ারবেস মেইন কোর লাইব্রেরিগুলো বডির একদম নিচে দেওয়া হলো (যাতে আগে পেজ লোড হয়) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    
+    <!-- তোর মেইন জাভাস্ক্রিপ্ট ফাইল যা ডাটা রিসিভ করবে -->
+    <script src="app.js"></script>
+</body>
+</html>
